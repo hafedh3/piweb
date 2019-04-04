@@ -1,0 +1,213 @@
+{% extends 'Admin.html.twig' %}
+
+{% block body %}
+
+
+    <h1>Les Produits</h1>
+
+    <h2> Listes des livres</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th> id</th>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Categorieproduit</th>
+            <th>Quantite</th>
+            <th>Prix</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">{{ produit.idProduit }}</a></td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.categorieproduit }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.titre }}</td>
+                <td>{{ produit.auteur }}</td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <h2>Accessoire</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th> id</th>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Categorieproduit</th>
+            <th>Quantite</th>
+            <th>Prix</th>
+            <th>Reference</th>
+            <th>Marque</th>
+            <th>poids</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">{{ produit.idProduit }}</a></td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.categorieproduit }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.reference }}</td>
+                <td>{{ produit.marque }}</td>
+                <td>{{ produit.poids }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Plante</h2>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Categorieproduit</th>
+            <th>Quantite</th>
+            <th>Prix</th>
+            <th>Categorieplants</th>
+            <th>Types</th>
+            <th>Durevie</th>
+            <th>Origine</th>
+            <th>Poids</th>
+            <th>Saison</th>
+            <th>Taille</th>
+            <th>Couleur</th>
+            <th>Tempsvie</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">{{ produit.idProduit }}</a></td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.categorieproduit }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.categorieplants }}</td>
+                <td>{{ produit.types }}</td>
+                <td>{{ produit.dureVie }}</td>
+                <td>{{ produit.origine }}</td>
+                <td>{{ produit.poids }}</td>
+                <td>{{ produit.saison }}</td>
+                <td>{{ produit.taille }}</td>
+                <td>{{ produit.couleur }}</td>
+                <td>{{ produit.tempsvie }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <h2>Soins</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th> id</th>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Categorieproduit</th>
+            <th>Quantite</th>
+            <th>Prix</th>
+            <th>Reference</th>
+            <th>Marque</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">{{ produit.idProduit }}</a></td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.categorieproduit }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.reference }}</td>
+                <td>{{ produit.poids }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_new') }}">Create a new produit</a>
+        </li>
+    </ul>
+{% endblock %}
