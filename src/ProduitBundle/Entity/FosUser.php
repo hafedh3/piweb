@@ -201,49 +201,50 @@ class FosUser extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true
+     *     )
      */
     protected $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
     protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255, nullable=false)
+     * @ORM\Column(name="adress", type="string", length=255, nullable=true)
      */
     protected $adress;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="nb_Participation", type="integer", nullable=false)
+     * @ORM\Column(name="nb_Participation", type="integer", nullable=true)
      */
     protected $nbParticipation;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="telephone", type="integer", nullable=false)
+     * @ORM\Column(name="telephone", type="integer", nullable=true)
      */
     protected $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sex", type="string", length=255, nullable=false)
+     * @ORM\Column(name="sex", type="string", length=255, nullable=true)
      */
     protected $sex;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     protected $description;
 

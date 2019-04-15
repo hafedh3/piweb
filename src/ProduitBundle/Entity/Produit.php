@@ -3,14 +3,21 @@
 namespace ProduitBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
+use SBC\NotificationsBundle\Model\NotifiableInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * Produit
  *
  * @ORM\Table(name="produit", indexes={@ORM\Index(name="id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ProduitBundle\Repository\NotificationRepository")
+ *  * @ORM\Entity
+ * @Vich\Uploadable
  */
-class Produit
+class Produit implements NotifiableInterface, \JsonSerializable
 {
     /**
      * @var integer
@@ -163,6 +170,29 @@ class Produit
      * })
      */
     public $idUser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrvue", type="integer", nullable=true)
+     */
+    public $nbrvue;
+
+    /**
+     * @return int
+     */
+    public function getNbrvue()
+    {
+        return $this->nbrvue;
+    }
+
+    /**
+     * @param int $nbrvue
+     */
+    public function setNbrvue($nbrvue)
+    {
+        $this->nbrvue = $nbrvue;
+    }
 
     /**
      * @return int
@@ -498,6 +528,44 @@ class Produit
     public function setIdUser($idUser)
     {
         $this->idUser = $idUser;
+    }
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new \ProduitBundle\Entity\Notification();
+        $notification
+            ->setTitle('Chère Client on a pour vous un nouveau produit')
+            ->setDescription('Produit  "'.$this->nom.'"')
+            ->setRoute('affichage')
+            ->setParameters(array('id' => $this->idProduit))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
+    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new \ProduitBundle\Entity\Notification();
+        $notification
+            ->setTitle('Modification')
+            ->setDescription('"'.$this->nom.'" a été changée ')
+            ->setRoute('affichage')
+            ->setParameters(array('id' => $this->idProduit))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
+    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+        // in case you don't want any notification for a special event
+        // you can simply return an empty $builder
+        return $builder;
+    }
+    function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
 

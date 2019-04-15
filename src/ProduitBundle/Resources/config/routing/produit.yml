@@ -22,3 +22,17 @@ produit_delete:
     path:     /{idProduit}/delete
     defaults: { _controller: "ProduitBundle:Produit:delete" }
     methods:  DELETE
+like:
+    path:     /like/{idProduit}
+    defaults: { _controller: "ProduitBundle:Produit:like" }
+    methods:  [GET, POST]
+
+dislike:
+    path:     /dislike/{idProduit}
+    defaults: { _controller: "ProduitBundle:Produit:dislike" }
+    methods:  [GET, POST]
+
+nombrevue:
+    path:     /nombrevue/{idProduit}/{nbrvue}
+    defaults: { _controller: "ProduitBundle:Produit:nombrevue" }
+    methods:  [GET, POST]
